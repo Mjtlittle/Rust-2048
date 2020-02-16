@@ -12,8 +12,8 @@ fn main() {
     board.set_tile(0,0,Tile::Value(10));
     board.set_tile(2,0,Tile::Value(10));
     board.print();
-    println!("");
     board.make_move(Direction::Right);
+    println!("");
     board.print();
 
 }
