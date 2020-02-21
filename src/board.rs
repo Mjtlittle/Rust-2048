@@ -1,4 +1,3 @@
-
 pub enum Tile {
     Empty,
     Value(usize),
@@ -73,36 +72,55 @@ impl Board {
         // pull out dx, dy
         let (dx, dy) = dir_vec;
 
-        // iterate over all tiles moving them
-        let mut xi;
-        let mut xlb;
-        let mut xub =  ;
-        let mut xinc = if (dx > 0) {1} else {-1};
-        
-        let mut yi;
-        let mut ylb;
-        let mut yub;
-        let mut yinc = if (dy > 0) {1} else {-1};
+        let mut xi: usize;
+        let mut yi: usize;
 
-        for txi in 0..self.width {
-            for tyi in 0..self.height {
+        for txi in 0..(self.width - 1) {
+            for tyi in 0..(self.height - 1) {
                 
                 // flip the ranges to go the opposite way for the moveing/merging
                 xi = if dir_vec.0 < 0 { self.width - txi - 1 } else { txi };
                 yi = if dir_vec.1 < 0 { self.height - tyi - 1 } else { tyi };
+                
+                
+                let curr = self.get_tile(xi, yi);
+                let targ = self.get_tile((xi as isize + dx) as usize, (yi as isize + dy) as usize);
 
-                // ignore last row/col
-                
-                
-                // 
+                if targ == 
+
+                // if let Tile::Value(v) = self.get_tile(xi, yi) {
+
+                //     && 
+                //    (self.get_tile(xi + dx, yi + dy) == Tile::Empty)
+                //     self.set_tile(xi, yi, Tile::Empty)
+                //     self.set_tile(xi + dx, yi + dy, Tile)
+                // }
+
+
                 match self.get_tile(xi, yi) {
                     Tile::Value(v) => {},
                     _ => {},
-                }
+                }        
+
+                println!("x:{} y:{}", xi, yi);
 
 
             }
         }
+
+        // for txi in 0..self.width {
+        //     for tyi in 0..self.height {
+                
+        
+        //         // ignore last row/col
+                
+                
+        //         // 
+        
+
+
+        //     }
+        // }
 
         return has_changed;
     }
